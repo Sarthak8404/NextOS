@@ -1,103 +1,58 @@
-import Image from "next/image";
+"use client";
+import React from "react";
+import { Cover } from "@/components/ui/cover";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
+import { CodeBlockDemo } from "./components/codeblock";
+export default function HomePage() {
 
-export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <section className="relative z-10">
+        <div className="grid max-w-screen-xl px-6 py-12 mx-auto lg:gap-12 xl:gap-16 lg:grid-cols-12">
+          {/* Left side (Text) */}
+          <div className="lg:col-span-6 flex flex-col justify-center">
+            <h1 className="max-w-2xl mb-6 text-4xl font-extrabold leading-tight md:text-5xl xl:text-6xl dark:text-white">
+              The bridge between your tools and the <Cover>AI revolution.</Cover>
+            </h1>
+            <p className="max-w-2xl mb-8 font-light text-gray-500 md:text-lg lg:text-xl dark:text-gray-400">
+              Seamlessly transform everyday tools into LLM-ready engines that power intelligent applications, faster, and smarter than ever before.
+            </p>
+            <div className="flex space-x-4">
+              <a href="/browse">
+              <HoverBorderGradient
+                containerClassName="rounded-full p-[2px]"
+                as="button"
+                className="bg-white dark:bg-black text-black dark:text-white flex items-center space-x-2 rounded-full px-4 py-2"
+              >
+                <span>Browse Tools</span>
+                <svg
+                  className="w-5 h-5 ml-2 -mr-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </HoverBorderGradient>
+              </a>
+              <a href="/docs" >
+              <button className="px-5 py-2 border border-white text-white rounded-xl transition-all duration-300 bg-transparent hover:bg-white hover:text-black">
+                Learn More
+              </button>
+              </a>
+            </div>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          {/* Right side (Code Block) */}
+          <div className="lg:col-span-5 flex items-center justify-center p-4">
+            <div className="ml-26">
+    <CodeBlockDemo />
+  </div>
+
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
   );
 }
